@@ -6,7 +6,8 @@ if (common.isWindows) {
 }
 
 const assert = require('assert');
-const binding = process.binding('util');
+const { internalBinding } = require('internal/bootstrap/loaders');
+const binding = internalBinding('util');
 
 [(next) => {
   // Test with no signal observed.

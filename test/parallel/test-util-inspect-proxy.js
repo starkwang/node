@@ -3,7 +3,8 @@
 require('../common');
 const assert = require('assert');
 const util = require('util');
-const processUtil = process.binding('util');
+const { internalBinding } = require('internal/bootstrap/loaders');
+const processUtil = internalBinding('util');
 const opts = { showProxy: true };
 
 const target = {};

@@ -25,7 +25,8 @@ const assert = require('assert');
 const JSStream = process.binding('js_stream').JSStream;
 const util = require('util');
 const vm = require('vm');
-const { previewEntries } = process.binding('util');
+const { internalBinding } = require('internal/bootstrap/loaders');
+const { previewEntries } = internalBinding('util');
 
 assert.strictEqual(util.inspect(1), '1');
 assert.strictEqual(util.inspect(false), 'false');

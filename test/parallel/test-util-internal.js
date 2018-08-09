@@ -5,12 +5,13 @@ require('../common');
 const assert = require('assert');
 const fixtures = require('../common/fixtures');
 
+const { internalBinding } = require('internal/bootstrap/loaders');
 const {
   getHiddenValue,
   setHiddenValue,
   arrow_message_private_symbol: kArrowMessagePrivateSymbolIndex,
   safeGetenv
-} = process.binding('util');
+} = internalBinding('util');
 
 for (const oneEnv in process.env) {
   assert.strictEqual(
