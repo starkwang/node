@@ -48,6 +48,18 @@ class MyRegExp extends RegExp {
 }
 
 {
+  const date1 = new Date('2018');
+  const date2 = new Date('2018');
+  assert.strictEqual(util.isDeepStrictEqual(date1, date2), true);
+
+  date1.getTime = null;
+  assert.strictEqual(util.isDeepStrictEqual(date1, date2), false);
+
+  date2.getTime = null;
+  assert.strictEqual(util.isDeepStrictEqual(date1, date2), true);
+}
+
+{
   const re1 = new RegExp('test');
   const re2 = new MyRegExp('test');
 
